@@ -95,9 +95,9 @@ branch.addChild(
 );
 
 branch.addChild( dot( canvasCenter - [ 0, flakeRadius ], 10 ) );
-branch.addChild( chevron( canvasCenter - [ 0, flakeRadius / 3 * 2 ], 10, 'down' ) );
-branch.addChild( bar( canvasCenter - [ 0, flakeRadius / 3 ], 10 ) );
-branch.addChild( triangle( canvasCenter, 10, 'down' ) );
+branch.addChild( chevron( canvasCenter - [ 0, flakeRadius / 3 * 2 ], 15, 'down' ) );
+branch.addChild( bar( canvasCenter - [ 0, flakeRadius / 4 * 2 ], 10 ) );
+branch.addChild( triangle( canvasCenter, 20, 'down' ) );
 
 var sides = 6;
 
