@@ -4,10 +4,22 @@ var     canvas = document.getElementById( "paperCanvas" ),
   canvasHeight = canvas.offsetHeight,
   canvasCenter = new Point( canvasWidth / 2, canvasHeight / 2 );
 
+// convert pixels to millimeters
 var millimetreRatio = 2.835;
 
+// stoke settings
 var strokeColor = 'black',
     strokeWidth = 2 * millimetreRatio;
+
+// shape functions
+// =================================================
+var shapeFunctions = [
+  dot,
+  cross,
+  chevron,
+  triangle,
+  bar
+];
 
 function dot ( center, radius ) {
   return new Path.Circle({
@@ -82,15 +94,10 @@ function triangle ( center, radius, direction ) {
 
   return trianglePath;
 }
+// end shape functions
+// =================================================
 
-var shapeFunctions = [
-  dot,
-  cross,
-  chevron,
-  triangle,
-  bar
-];
-
+// get a random direction
 function randDir() {
   if ( Math.random() < 0.5 ) {
     return 'down';
@@ -99,12 +106,15 @@ function randDir() {
   }
 }
 
+// random num wrapper
 function randNum ( min, max ) {
   return Math.floor( Math.random() * ( max - min + 1) ) + min;
 }
 
+// size of snowflake
 var flakeRadius = 15 * millimetreRatio;
 
+// build  a snowflake
 function drawFlake ( left, top ) {
   var branch = new Group();
   var branchCenter = new Point( flakeRadius + left, flakeRadius + top );
@@ -127,11 +137,13 @@ function drawFlake ( left, top ) {
   }
 }
 
+// draw some snowflakes
 drawFlake( 25, 30 );
 drawFlake( 50 + flakeRadius * 2, 30 );
 drawFlake( 75 + flakeRadius * 4, 30 );
 drawFlake( 100 + flakeRadius * 6, 30 );
 
+// save the content to a file.
 var svgContent = new Blob(
   [ '<?xml version="1.0" encoding="utf-8"?>' + project.exportSVG({ asString: true }) ],
   { type: "text/plain;charset=utf-8" }
