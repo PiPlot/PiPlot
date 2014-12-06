@@ -41,7 +41,7 @@ body {
 //===============================================================================
 // STYLES
 //===============================================================================
-#save-btn {
+input, #save-btn {
   border: 0;
   appearance: none;
   background-color: hsl( 220, 100, 50 );
@@ -63,6 +63,37 @@ body {
   }
 }
 
+input {
+  width: 200px;
+}
+
 #paperCanvas {
   border: 2px dashed black;
+}
+
+input#name1 {
+  bottom: 60px;
+  left: 0;
+}
+
+input#name2 {
+  bottom: 60px;
+  left: 220px;
+}
+
+input#name3 {
+  bottom: 60px;
+  left: 440px;
+}
+
+input#name4 {
+  left: 0;
+}
+
+input#name5 {
+  left: 220px;
+}
+
+input#name6 {
+  left: 440px;
 }
