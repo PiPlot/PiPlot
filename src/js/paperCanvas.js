@@ -104,3 +104,15 @@ var sides = 6;
 for ( var s = 0; s < sides; s++ ) {
   branch.clone().rotate( 360 / sides * s, canvasCenter );
 }
+
+// var output = $( '#output' );
+// output.text( project.exportSVG({ asString: true }) );
+
+var svgContent = new Blob(
+  [ project.exportSVG({ asString: true }) ],
+  { type: "text/plain;charset=utf-8" }
+);
+
+$( '#save-btn' ).click( function() {
+  saveAs( svgContent, 'test.svg' );
+});
