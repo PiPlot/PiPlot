@@ -48,13 +48,20 @@ body {
   position: fixed;
   font-size: 2em;
   color: white;
+  bottom: 0;
+  right: 0;
   font-weight: 700;
   margin: 1em;
   border-radius: 0.1em;
   padding: 0.2em 0.4em 0.1em;
   transition: background-color 0.25s;
+  opacity: 0.25;
 
   &:hover {
     background-color: hsl( 220, 100, 40 );
   }
+}
+
+#paperCanvas {
+  border: 2px dashed black;
 }
