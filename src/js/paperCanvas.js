@@ -136,26 +136,23 @@ function drawFlake ( left, top ) {
   }
 }
 
-var spacer = 130;
+var spacer = 159;
 
 // draw some snowflakes
-drawFlake( 31.5, 80 );
-drawFlake( 31.5, 595.3 - ( 80 + flakeRadius * 2 ) );
+drawFlake( 60, 80 );
+drawFlake( 60, 595.3 - ( 80 + flakeRadius * 2 ) );
 
-drawFlake( 31.5 + spacer, 80 );
-drawFlake( 31.5 + spacer, 595.3 - ( 80 + flakeRadius * 2 ) );
+drawFlake( 60 + spacer, 80 );
+drawFlake( 60 + spacer, 595.3 - ( 80 + flakeRadius * 2 ) );
 
-drawFlake( 31.5 + spacer * 2, 80 );
-drawFlake( 31.5 + spacer * 2, 595.3 - ( 80 + flakeRadius * 2 ) );
+drawFlake( 60 + spacer * 2, 80 );
+drawFlake( 60 + spacer * 2, 595.3 - ( 80 + flakeRadius * 2 ) );
 
-drawFlake( 31.5 + spacer * 3, 80 );
-drawFlake( 31.5 + spacer * 3, 595.3 - ( 80 + flakeRadius * 2 ) );
+drawFlake( 60 + spacer * 3, 80 );
+drawFlake( 60 + spacer * 3, 595.3 - ( 80 + flakeRadius * 2 ) );
 
-drawFlake( 31.5 + spacer * 4, 80 );
-drawFlake( 31.5 + spacer * 4, 595.3 - ( 80 + flakeRadius * 2 ) );
-
-drawFlake( 31.5 + spacer * 5, 80 );
-drawFlake( 31.5 + spacer * 5, 595.3 - ( 80 + flakeRadius * 2 ) );
+drawFlake( 60 + spacer * 4, 80 );
+drawFlake( 60 + spacer * 4, 595.3 - ( 80 + flakeRadius * 2 ) );
 
 var textOptions = {
   fontFamily: 'miso-skinny',
@@ -168,50 +165,49 @@ var names = [
   'MARK',
   'TU TAK',
   'KATHARINE',
-  'ALISON',
-  'CHARLES'
+  'ALISON'
 ];
 
 new PointText( textOptions ).set({
   content: names[0],
   fontSize: 60,
   rotation: 90,
-  position: new Point( 70, canvasHeight / 2 )
+  position: new Point( 102, canvasHeight / 2 )
 });
 
 new PointText( textOptions ).set({
   content: names[1],
   fontSize: 60,
   rotation: 90,
-  position: new Point( 70 + spacer, canvasHeight / 2 )
+  position: new Point( 102 + spacer, canvasHeight / 2 )
 });
 
 new PointText( textOptions ).set({
   content: names[2],
   fontSize: 60,
   rotation: 90,
-  position: new Point( 70 + spacer * 2, canvasHeight / 2 )
+  position: new Point( 102 + spacer * 2, canvasHeight / 2 )
 });
 
 new PointText( textOptions ).set({
   content: names[3],
   fontSize: 60,
   rotation: 90,
-  position: new Point( 70 + spacer * 3, canvasHeight / 2 )
+  position: new Point( 102 + spacer * 3, canvasHeight / 2 )
 });
 
 new PointText( textOptions ).set({
   content: names[4],
   fontSize: 60,
   rotation: 90,
-  position: new Point( 70 + spacer * 4, canvasHeight / 2 )
+  position: new Point( 102 + spacer * 4, canvasHeight / 2 )
 });
 
 new PointText( textOptions ).set({
   content: names[5],
   fontSize: 60,
   rotation: 90,
-  position: new Point( 70 + spacer * 5, canvasHeight / 2 )
+  position: new Point( 102 + spacer * 5, canvasHeight / 2 )
 });
 
 
