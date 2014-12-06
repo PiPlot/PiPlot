@@ -158,7 +158,7 @@ drawFlake( 31.5 + spacer * 5, 80 );
 drawFlake( 31.5 + spacer * 5, 595.3 - ( 80 + flakeRadius * 2 ) );
 
 var textOptions = {
-  fontFamily: 'miso-skinny',
+  fontFamily: 'miso',
   fillColor: 'black',
   fontWeight: 100
 };
