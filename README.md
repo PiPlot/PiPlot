@@ -10,3 +10,21 @@ the [Christmas IoT hackathon] run by [resion.io](https://resin.io) at
 [@frathgeber]: https://twitter.com/frathgeber
 [Christmas IoT hackathon]: http://fablablondon.org/events/xmas-iot-hackathon-with-resin-io/
 [Fablab London]: http://fablablondon.org
+
+## Barebones gulp project
+
+Barebones gulp.js project. Gives you local server, liveReload, Sass, & jshint.
+
+### getting started
+
+Install [node](http://nodejs.org/) & [gulp](http://gulpjs.com/)
+
+`brew install node`, `npm install -g gulp`
+
+Install packages
+
+`npm i`
+
+Run Gulp
+
+`gulp`
