@@ -4,10 +4,10 @@ var     canvas = document.getElementById( "paperCanvas" ),
   canvasHeight = canvas.offsetHeight,
   canvasCenter = new Point( canvasWidth / 2, canvasHeight / 2 );
 
-var flakeRadius = 100;
+var millimetreRatio = 2.835;
 
 var strokeColor = 'black',
-    strokeWidth = 5;
+    strokeWidth = 2 * millimetreRatio;
 
 function dot ( center, radius ) {
   return new Path.Circle({
@@ -83,33 +83,65 @@ function triangle ( center, radius, direction ) {
   return trianglePath;
 }
 
-var branch = new Group();
+var shapeFunctions = [
+  dot,
+  bar,
+  cross,
+  chevron,
+  triangle
+];
 
-branch.addChild(
-  new Path.Line({
-    from: canvasCenter - [ 0, flakeRadius ],
-    to: canvasCenter,
-    strokeColor: strokeColor,
-    strokeWidth: strokeWidth
-  })
-);
-
-branch.addChild( dot( canvasCenter - [ 0, flakeRadius ], 10 ) );
-branch.addChild( chevron( canvasCenter - [ 0, flakeRadius / 3 * 2 ], 15, 'down' ) );
-branch.addChild( bar( canvasCenter - [ 0, flakeRadius / 4 * 2 ], 10 ) );
-branch.addChild( triangle( canvasCenter, 20, 'down' ) );
-
-var sides = 6;
-
-for ( var s = 0; s < sides; s++ ) {
-  branch.clone().rotate( 360 / sides * s, canvasCenter );
+function randDir() {
+  if ( Math.random() < 0.5 ) {
+    return 'down';
+  } else {
+    return 'up';
+  }
 }
 
-// var output = $( '#output' );
-// output.text( project.exportSVG({ asString: true }) );
+function randNum ( min, max ) {
+  return Math.floor( Math.random() * ( max - min + 1) ) + min;
+}
+
+var flakeRadius = 30 * millimetreRatio;
+
+var margin = 5 * millimetreRatio;
+
+function drawFlake ( left, top ) {
+  var branch = new Group();
+  var branchCenter = new Point( flakeRadius + left, flakeRadius + top );
+  var sides = randNum( 5, 7 );
+
+  branch.addChildren([
+    new Path.Line({
+      from: branchCenter - [ 0, flakeRadius ],
+      to: branchCenter,
+      strokeColor: strokeColor,
+      strokeWidth: strokeWidth
+    }),
+    shapeFunctions[ randNum( 0, shapeFunctions.length -1 ) ]( branchCenter, 15, randDir() ),
+    shapeFunctions[ randNum( 0, shapeFunctions.length -1 ) ]( branchCenter - [ 0, flakeRadius / 3 ], 12, randDir() ),
+    shapeFunctions[ randNum( 0, shapeFunctions.length -1 ) ]( branchCenter - [ 0, flakeRadius / 3 * 2 ], 10, randDir() ),
+    shapeFunctions[ randNum( 0, shapeFunctions.length -1 ) ]( branchCenter - [ 0, flakeRadius ], 12, randDir() )
+  ]);
+
+  for ( var s = 0; s < sides; s++ ) {
+    branch.clone().rotate( 360 / sides * s, branchCenter );
+  }
+}
+
+drawFlake( 25, 30 );
+drawFlake( 50 + flakeRadius * 2, 30 );
+drawFlake( 75 + flakeRadius * 4, 30 );
+drawFlake( 100 + flakeRadius * 6, 30 );
+
+drawFlake( 25, 300 );
+drawFlake( 50 + flakeRadius * 2, 300 );
+drawFlake( 75 + flakeRadius * 4, 300 );
+drawFlake( 100 + flakeRadius * 6, 300 );
 
 var svgContent = new Blob(
-  [ project.exportSVG({ asString: true }) ],
+  [ '<?xml version="1.0" encoding="utf-8"?>' + project.exportSVG({ asString: true }) ],
   { type: "text/plain;charset=utf-8" }
 );
 
