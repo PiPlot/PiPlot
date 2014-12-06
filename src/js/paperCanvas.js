@@ -1,7 +1,7 @@
 // set up canvas
 var     canvas = document.getElementById( "paperCanvas" ),
-   canvasWidth = canvas.offsetWidth,
-  canvasHeight = canvas.offsetHeight,
+   canvasWidth = 841.9,
+  canvasHeight = 595.3,
   canvasCenter = new Point( canvasWidth / 2, canvasHeight / 2 );
 
 // convert pixels to millimeters
@@ -155,7 +155,7 @@ drawFlake( 60 + spacer * 4, 80 );
 drawFlake( 60 + spacer * 4, 595.3 - ( 80 + flakeRadius * 2 ) );
 
 var textOptions = {
-  fontFamily: 'miso-skinny',
+  fontFamily: 'miso',
   fillColor: 'black',
   fontWeight: 100
 };
@@ -168,56 +168,56 @@ var names = [
   'ALISON'
 ];
 
-new PointText( textOptions ).set({
-  content: names[0],
-  fontSize: 60,
-  rotation: 90,
-  position: new Point( 102, canvasHeight / 2 )
-});
+$('#save-btn').click(function() {
+  new PointText( textOptions ).set({
+    content: names[0],
+    fontSize: 60,
+    rotation: 90,
+    position: new Point( 102, canvasHeight / 2 )
+  });
 
-new PointText( textOptions ).set({
-  content: names[1],
-  fontSize: 60,
-  rotation: 90,
-  position: new Point( 102 + spacer, canvasHeight / 2 )
-});
+  new PointText( textOptions ).set({
+    content: names[1],
+    fontSize: 60,
+    rotation: 90,
+    position: new Point( 102 + spacer, canvasHeight / 2 )
+  });
 
-new PointText( textOptions ).set({
-  content: names[2],
-  fontSize: 60,
-  rotation: 90,
-  position: new Point( 102 + spacer * 2, canvasHeight / 2 )
-});
+  new PointText( textOptions ).set({
+    content: names[2],
+    fontSize: 60,
+    rotation: 90,
+    position: new Point( 102 + spacer * 2, canvasHeight / 2 )
+  });
 
-new PointText( textOptions ).set({
-  content: names[3],
-  fontSize: 60,
-  rotation: 90,
-  position: new Point( 102 + spacer * 3, canvasHeight / 2 )
-});
+  new PointText( textOptions ).set({
+    content: names[3],
+    fontSize: 60,
+    rotation: 90,
+    position: new Point( 102 + spacer * 3, canvasHeight / 2 )
+  });
 
-new PointText( textOptions ).set({
-  content: names[4],
-  fontSize: 60,
-  rotation: 90,
-  position: new Point( 102 + spacer * 4, canvasHeight / 2 )
-});
+  new PointText( textOptions ).set({
+    content: names[4],
+    fontSize: 60,
+    rotation: 90,
+    position: new Point( 102 + spacer * 4, canvasHeight / 2 )
+  });
 
-new PointText( textOptions ).set({
-  content: names[5],
-  fontSize: 60,
-  rotation: 90,
-  position: new Point( 102 + spacer * 5, canvasHeight / 2 )
-});
+  new PointText( textOptions ).set({
+    content: names[5],
+    fontSize: 60,
+    rotation: 90,
+    position: new Point( 102 + spacer * 5, canvasHeight / 2 )
+  });
 
-
-// save the content to a file.
-// =================================================
-var svgContent = new Blob(
-  [ '<?xml version="1.0" encoding="utf-8"?>' + project.exportSVG({ asString: true }) ],
-  { type: "text/plain;charset=utf-8" }
-);
-
-$( '#save-btn' ).click( function() {
-  saveAs( svgContent, 'test.svg' );
+  // save the content to a file.
+  // =================================================
+  saveAs(new Blob(
+    ['<?xml version="1.0" encoding="utf-8"?>' + project.exportSVG({
+      asString: true
+    })], {
+      type: "text/plain;charset=utf-8"
+    }
+  ), 'test.svg');
 });
