@@ -9,7 +9,8 @@ var millimetreRatio = 2.835;
 
 // stoke settings
 var strokeColor = 'black',
-    strokeWidth = 2 * millimetreRatio;
+    strokeWidth = 2 * millimetreRatio,
+    strokeCap = 'round';
 
 // shape functions
 // =================================================
@@ -56,7 +57,7 @@ function cross ( center, radius ) {
   ]);
 }
 
-function chevron ( center, radius, direction ) {
+function chevron ( center, radius ) {
   var chevronPath = new Group([
     new Path.Line({
       from: center + [ 0, - radius / 2 ],
@@ -72,9 +73,7 @@ function chevron ( center, radius, direction ) {
     })
   ]);
 
-  if ( direction === 'down' ) {
-    chevronPath.rotate( 180 );
-  }
+  chevronPath.rotate( 180 );
 
   return chevronPath;
 }
@@ -137,13 +136,87 @@ function drawFlake ( left, top ) {
   }
 }
 
+var spacer = 130;
+
 // draw some snowflakes
-drawFlake( 25, 30 );
-drawFlake( 50 + flakeRadius * 2, 30 );
-drawFlake( 75 + flakeRadius * 4, 30 );
-drawFlake( 100 + flakeRadius * 6, 30 );
+drawFlake( 31.5, 80 );
+drawFlake( 31.5, 595.3 - ( 80 + flakeRadius * 2 ) );
+
+drawFlake( 31.5 + spacer, 80 );
+drawFlake( 31.5 + spacer, 595.3 - ( 80 + flakeRadius * 2 ) );
+
+drawFlake( 31.5 + spacer * 2, 80 );
+drawFlake( 31.5 + spacer * 2, 595.3 - ( 80 + flakeRadius * 2 ) );
+
+drawFlake( 31.5 + spacer * 3, 80 );
+drawFlake( 31.5 + spacer * 3, 595.3 - ( 80 + flakeRadius * 2 ) );
+
+drawFlake( 31.5 + spacer * 4, 80 );
+drawFlake( 31.5 + spacer * 4, 595.3 - ( 80 + flakeRadius * 2 ) );
+
+drawFlake( 31.5 + spacer * 5, 80 );
+drawFlake( 31.5 + spacer * 5, 595.3 - ( 80 + flakeRadius * 2 ) );
+
+var textOptions = {
+  fontFamily: 'miso-skinny',
+  fillColor: 'black',
+  fontWeight: 100
+};
+
+var names = [
+  'FLORIAN',
+  'MARK',
+  'TU TAK',
+  'KATHARINE',
+  'ALISON',
+  'CHARLES'
+];
+
+new PointText( textOptions ).set({
+  content: names[0],
+  fontSize: 60,
+  rotation: 90,
+  position: new Point( 70, canvasHeight / 2 )
+});
+
+new PointText( textOptions ).set({
+  content: names[1],
+  fontSize: 60,
+  rotation: 90,
+  position: new Point( 70 + spacer, canvasHeight / 2 )
+});
+
+new PointText( textOptions ).set({
+  content: names[2],
+  fontSize: 60,
+  rotation: 90,
+  position: new Point( 70 + spacer * 2, canvasHeight / 2 )
+});
+
+new PointText( textOptions ).set({
+  content: names[3],
+  fontSize: 60,
+  rotation: 90,
+  position: new Point( 70 + spacer * 3, canvasHeight / 2 )
+});
+
+new PointText( textOptions ).set({
+  content: names[4],
+  fontSize: 60,
+  rotation: 90,
+  position: new Point( 70 + spacer * 4, canvasHeight / 2 )
+});
+
+new PointText( textOptions ).set({
+  content: names[5],
+  fontSize: 60,
+  rotation: 90,
+  position: new Point( 70 + spacer * 5, canvasHeight / 2 )
+});
+
 
 // save the content to a file.
+// =================================================
 var svgContent = new Blob(
   [ '<?xml version="1.0" encoding="utf-8"?>' + project.exportSVG({ asString: true }) ],
   { type: "text/plain;charset=utf-8" }
