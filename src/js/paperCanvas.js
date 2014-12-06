@@ -160,52 +160,44 @@ var textOptions = {
   fontWeight: 100
 };
 
-var names = [
-  'FLORIAN',
-  'MARK',
-  'TU TAK',
-  'KATHARINE',
-  'ALISON'
-];
-
 $('#save-btn').click(function() {
-  new PointText( textOptions ).set({
-    content: names[0],
+  new PointText(textOptions).set({
+    content: $('#name1').val(),
     fontSize: 60,
     rotation: 90,
     position: new Point( 102, canvasHeight / 2 )
   });
 
-  new PointText( textOptions ).set({
-    content: names[1],
+  new PointText(textOptions).set({
+    content: $('#name2').val(),
     fontSize: 60,
     rotation: 90,
     position: new Point( 102 + spacer, canvasHeight / 2 )
   });
 
-  new PointText( textOptions ).set({
-    content: names[2],
+  new PointText(textOptions).set({
+    content: $('#name3').val(),
     fontSize: 60,
     rotation: 90,
     position: new Point( 102 + spacer * 2, canvasHeight / 2 )
   });
 
-  new PointText( textOptions ).set({
-    content: names[3],
+  new PointText(textOptions).set({
+    content: $('#name4').val(),
     fontSize: 60,
     rotation: 90,
     position: new Point( 102 + spacer * 3, canvasHeight / 2 )
   });
 
-  new PointText( textOptions ).set({
-    content: names[4],
+  new PointText(textOptions).set({
+    content: $('#name5').val(),
     fontSize: 60,
     rotation: 90,
     position: new Point( 102 + spacer * 4, canvasHeight / 2 )
   });
 
-  new PointText( textOptions ).set({
-    content: names[5],
+  new PointText(textOptions).set({
+    content: $('#name6').val(),
     fontSize: 60,
     rotation: 90,
     position: new Point( 102 + spacer * 5, canvasHeight / 2 )
