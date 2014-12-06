@@ -12,7 +12,7 @@ var strokeColor = 'black',
 function dot ( center, radius ) {
   return new Path.Circle({
     center: center,
-    radius: radius,
+    radius: radius / 3,
     strokeColor: strokeColor,
     strokeWidth: strokeWidth
   });
@@ -85,10 +85,10 @@ function triangle ( center, radius, direction ) {
 
 var shapeFunctions = [
   dot,
-  bar,
   cross,
   chevron,
-  triangle
+  triangle,
+  bar
 ];
 
 function randDir() {
@@ -103,9 +103,7 @@ function randNum ( min, max ) {
   return Math.floor( Math.random() * ( max - min + 1) ) + min;
 }
 
-var flakeRadius = 30 * millimetreRatio;
-
-var margin = 5 * millimetreRatio;
+var flakeRadius = 15 * millimetreRatio;
 
 function drawFlake ( left, top ) {
   var branch = new Group();
@@ -119,10 +117,9 @@ function drawFlake ( left, top ) {
       strokeColor: strokeColor,
       strokeWidth: strokeWidth
     }),
-    shapeFunctions[ randNum( 0, shapeFunctions.length -1 ) ]( branchCenter, 15, randDir() ),
-    shapeFunctions[ randNum( 0, shapeFunctions.length -1 ) ]( branchCenter - [ 0, flakeRadius / 3 ], 12, randDir() ),
-    shapeFunctions[ randNum( 0, shapeFunctions.length -1 ) ]( branchCenter - [ 0, flakeRadius / 3 * 2 ], 10, randDir() ),
-    shapeFunctions[ randNum( 0, shapeFunctions.length -1 ) ]( branchCenter - [ 0, flakeRadius ], 12, randDir() )
+    shapeFunctions[ randNum( 1, shapeFunctions.length -1 ) ]( branchCenter, 12, randDir() ),
+    shapeFunctions[ randNum( 1, shapeFunctions.length -1 ) ]( branchCenter - [ 0, flakeRadius / 2 ], 10, randDir() ),
+    shapeFunctions[ randNum( 0, shapeFunctions.length -3 ) ]( branchCenter - [ 0, flakeRadius ], 8, randDir() )
   ]);
 
   for ( var s = 0; s < sides; s++ ) {
@@ -134,11 +131,6 @@ drawFlake( 25, 30 );
 drawFlake( 50 + flakeRadius * 2, 30 );
 drawFlake( 75 + flakeRadius * 4, 30 );
 drawFlake( 100 + flakeRadius * 6, 30 );
-
-drawFlake( 25, 300 );
-drawFlake( 50 + flakeRadius * 2, 300 );
-drawFlake( 75 + flakeRadius * 4, 300 );
-drawFlake( 100 + flakeRadius * 6, 300 );
 
 var svgContent = new Blob(
   [ '<?xml version="1.0" encoding="utf-8"?>' + project.exportSVG({ asString: true }) ],
