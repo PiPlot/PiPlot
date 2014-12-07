@@ -44,7 +44,9 @@ body {
 //===============================================================================
 
 #paperCanvas {
-  display: none;
+  // display: none;
+  background: white;
+  background-image: url( '../img/guides.svg' );
 }
 
 .wrap {
@@ -88,6 +90,7 @@ body {
   appearance: none;
   font-weight: 400;
   width: 100%;
+  letter-spacing: 0.05em;
   margin-bottom: 0.5em;
   background-color: mix( $ink, $paper, 5% );
   font-size: 1.4em;

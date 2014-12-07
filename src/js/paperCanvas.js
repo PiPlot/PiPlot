@@ -111,7 +111,7 @@ function randNum ( min, max ) {
 }
 
 // size of snowflake
-var flakeRadius = 15 * millimetreRatio;
+var flakeRadius = 11.25 * millimetreRatio;
 
 // build  a snowflake
 function drawFlake ( left, top ) {
@@ -126,9 +126,9 @@ function drawFlake ( left, top ) {
       strokeColor: strokeColor,
       strokeWidth: strokeWidth
     }),
-    shapeFunctions[ randNum( 1, shapeFunctions.length -1 ) ]( branchCenter, 12, randDir() ),
-    shapeFunctions[ randNum( 1, shapeFunctions.length -1 ) ]( branchCenter - [ 0, flakeRadius / 2 ], 10, randDir() ),
-    shapeFunctions[ randNum( 0, shapeFunctions.length -3 ) ]( branchCenter - [ 0, flakeRadius ], 8, randDir() )
+    shapeFunctions[ randNum( 1, shapeFunctions.length -1 ) ]( branchCenter, 10, randDir() ),
+    shapeFunctions[ randNum( 1, shapeFunctions.length -1 ) ]( branchCenter - [ 0, flakeRadius / 2 ], 8, randDir() ),
+    shapeFunctions[ randNum( 0, shapeFunctions.length -3 ) ]( branchCenter - [ 0, flakeRadius ], 7, randDir() )
   ]);
 
   for ( var s = 0; s < sides; s++ ) {
@@ -136,23 +136,25 @@ function drawFlake ( left, top ) {
   }
 }
 
-var spacer = 160;
+var spacer = 169.5;
+var flakeStart = 51.5;
+var textStart = 82;
 
 // draw some snowflakes
-drawFlake( 60, 80 );
-drawFlake( 60, 595.3 - ( 80 + flakeRadius * 2 ) );
+drawFlake( flakeStart, 80 );
+drawFlake( flakeStart, 595.3 - ( 80 + flakeRadius * 2 ) );
 
-drawFlake( 60 + spacer, 80 );
-drawFlake( 60 + spacer, 595.3 - ( 80 + flakeRadius * 2 ) );
+drawFlake( flakeStart + spacer, 80 );
+drawFlake( flakeStart + spacer, 595.3 - ( 80 + flakeRadius * 2 ) );
 
-drawFlake( 60 + spacer * 2, 80 );
-drawFlake( 60 + spacer * 2, 595.3 - ( 80 + flakeRadius * 2 ) );
+drawFlake( flakeStart + spacer * 2, 80 );
+drawFlake( flakeStart + spacer * 2, 595.3 - ( 80 + flakeRadius * 2 ) );
 
-drawFlake( 60 + spacer * 3, 80 );
-drawFlake( 60 + spacer * 3, 595.3 - ( 80 + flakeRadius * 2 ) );
+drawFlake( flakeStart + spacer * 3, 80 );
+drawFlake( flakeStart + spacer * 3, 595.3 - ( 80 + flakeRadius * 2 ) );
 
-drawFlake( 60 + spacer * 4, 80 );
-drawFlake( 60 + spacer * 4, 595.3 - ( 80 + flakeRadius * 2 ) );
+drawFlake( flakeStart + spacer * 4, 80 );
+drawFlake( flakeStart + spacer * 4, 595.3 - ( 80 + flakeRadius * 2 ) );
 
 var textOptions = {
   fontFamily: 'miso',
@@ -165,42 +167,42 @@ $('#save-btn').click(function() {
     content: $('#name1').val(),
     fontSize: 60,
     rotation: 90,
-    position: new Point( 102, canvasHeight / 2 )
+    position: new Point( textStart, canvasHeight / 2 )
   });
 
   new PointText(textOptions).set({
     content: $('#name2').val(),
     fontSize: 60,
     rotation: 90,
-    position: new Point( 102 + spacer, canvasHeight / 2 )
+    position: new Point( textStart + spacer, canvasHeight / 2 )
   });
 
   new PointText(textOptions).set({
     content: $('#name3').val(),
     fontSize: 60,
     rotation: 90,
-    position: new Point( 102 + spacer * 2, canvasHeight / 2 )
+    position: new Point( textStart + spacer * 2, canvasHeight / 2 )
   });
 
   new PointText(textOptions).set({
     content: $('#name4').val(),
     fontSize: 60,
     rotation: 90,
-    position: new Point( 102 + spacer * 3, canvasHeight / 2 )
+    position: new Point( textStart + spacer * 3, canvasHeight / 2 )
   });
 
   new PointText(textOptions).set({
     content: $('#name5').val(),
     fontSize: 60,
     rotation: 90,
-    position: new Point( 102 + spacer * 4, canvasHeight / 2 )
+    position: new Point( textStart + spacer * 4, canvasHeight / 2 )
   });
 
   new PointText(textOptions).set({
     content: $('#name6').val(),
     fontSize: 60,
     rotation: 90,
-    position: new Point( 102 + spacer * 5, canvasHeight / 2 )
+    position: new Point( textStart + spacer * 5, canvasHeight / 2 )
   });
 
   $.post('/plot', {svg: '<?xml version="1.0" encoding="utf-8"?>' + project.exportSVG({asString: true})});
