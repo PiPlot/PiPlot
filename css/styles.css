@@ -166,6 +166,12 @@ html, body {
   line-height: 1.4;
   font-family: 'Roboto', sans-serif; }
 
+a {
+  color: #56595e;
+  text-decoration: none; }
+  a:hover {
+    color: #ba509e; }
+
 #paperCanvas {
   background: white;
   background-image: url('../img/guides.svg'); }
