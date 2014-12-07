@@ -1,11 +1,11 @@
 {
-  "name": "barebones-gulp-project",
+  "name": "PiPlot",
   "version": "0.0.1",
-  "author": "Mark Durrant < @M6_D6 >",
-  "description": "gulp, localhost, livereload, sass, jshint",
+  "author": "Florian Rathgeber < @frathgeber >, Mark Durrant < @M6_D6 >",
+  "description": "Raspery Pi powered gift tag plotting mechanism",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/PiPlot/PiPlot.git"
   },
   "scripts": {
     "install": "node_modules/gulp/bin/gulp.js sass"
