@@ -1,10 +1,12 @@
 PiPlot - plot stuff using a Raspberry Pi
 ========================================
 
+![Raspberry Pi](src/img/logo.svg)
+
 > Raspery Pi powered gift tag plotting mechanism
 
 Built by [Mark Durrant](https://github.com/markdurrant) ([@M6_D6]) and
-[Florian Rathgeber](https://github.com/kynan) [@frathgeber] for
+[Florian Rathgeber](https://github.com/kynan) ([@frathgeber]) for
 the [Christmas IoT hackathon] run by [resion.io](https://resin.io) at
 [Fablab London].
 
