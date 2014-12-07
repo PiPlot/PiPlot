@@ -21,8 +21,6 @@
     "gulp-sass": "^0.7.2",
     "gulp-jshint": "~1.3.4",
     "jshint-stylish": "http://github.com/markdurrant/jshint-stylish/tarball/master",
-    "ngrok": "^0.1.98",
-    "node-sass": "^1.2.3",
-    "node-sass-middleware": "^0.4.0"
+    "ngrok": "^0.1.98"
   }
 }

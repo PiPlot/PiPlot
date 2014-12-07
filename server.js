@@ -3,22 +3,11 @@ var fs = require('fs'),
   exec = require('child_process').exec,
   express = require('express'),
   ngrok = require('ngrok'),
-  sassMiddleware = require('node-sass-middleware'),
   bodyParser = require('body-parser')
 
 var app = module.exports = express();
 
 app.use(bodyParser());
-
-// adding the sass middleware
-app.use(
-  sassMiddleware({
-    src: __dirname + '/sass',
-    dest: __dirname + '/src/css',
-    debug: true,
-  })
-);
-
 // The static middleware must come after the sass middleware
 app.use(express.static( path.join( __dirname, 'src' ) ) );
 
