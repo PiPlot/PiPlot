@@ -43,6 +43,14 @@ body {
 // STYLES
 //===============================================================================
 
+a {
+  color: mix( $ink, $paper, 30% );
+  text-decoration: none;
+  &:hover {
+    color: #ba509e;
+  }
+}
+
 #paperCanvas {
   // display: none;
   background: white;
