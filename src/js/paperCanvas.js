@@ -138,23 +138,35 @@ function drawFlake ( left, top ) {
 
 var spacer = 169.5;
 var flakeStart = 51.5;
+var flakeMargins = 85;
 var textStart = 82;
 
 // draw some snowflakes
-drawFlake( flakeStart, 80 );
-drawFlake( flakeStart, 595.3 - ( 80 + flakeRadius * 2 ) );
+drawFlake( flakeStart, flakeMargins );
+drawFlake( flakeStart, 595.3 - ( flakeMargins + flakeRadius * 2 ) );
 
-drawFlake( flakeStart + spacer, 80 );
-drawFlake( flakeStart + spacer, 595.3 - ( 80 + flakeRadius * 2 ) );
+drawFlake( flakeStart + spacer, flakeMargins );
+drawFlake( flakeStart + spacer, 595.3 - ( flakeMargins + flakeRadius * 2 ) );
 
-drawFlake( flakeStart + spacer * 2, 80 );
-drawFlake( flakeStart + spacer * 2, 595.3 - ( 80 + flakeRadius * 2 ) );
+drawFlake( flakeStart + spacer * 2, flakeMargins );
+drawFlake( flakeStart + spacer * 2, 595.3 - ( flakeMargins + flakeRadius * 2 ) );
 
-drawFlake( flakeStart + spacer * 3, 80 );
-drawFlake( flakeStart + spacer * 3, 595.3 - ( 80 + flakeRadius * 2 ) );
+drawFlake( flakeStart + spacer * 3, flakeMargins );
+drawFlake( flakeStart + spacer * 3, 595.3 - ( flakeMargins + flakeRadius * 2 ) );
 
-drawFlake( flakeStart + spacer * 4, 80 );
-drawFlake( flakeStart + spacer * 4, 595.3 - ( 80 + flakeRadius * 2 ) );
+drawFlake( flakeStart + spacer * 4, flakeMargins );
+drawFlake( flakeStart + spacer * 4, 595.3 - ( flakeMargins + flakeRadius * 2 ) );
+
+// paper resistration stuff
+new Path.Line( {
+  from: [0,0],
+  to: [0, 0]
+});
+
+new Path.Line( {
+  from: [841.9, 595.3],
+  to: [841.9, 595.3]
+});
 
 var textOptions = {
   fontFamily: 'miso',
@@ -164,45 +176,38 @@ var textOptions = {
 
 $('#save-btn').click(function() {
   new PointText(textOptions).set({
-    content: $('#name1').val(),
+    content: $('#name1').val().toUpperCase(),
     fontSize: 60,
     rotation: 90,
     position: new Point( textStart, canvasHeight / 2 )
   });
 
   new PointText(textOptions).set({
-    content: $('#name2').val(),
+    content: $('#name2').val().toUpperCase(),
     fontSize: 60,
     rotation: 90,
     position: new Point( textStart + spacer, canvasHeight / 2 )
   });
 
   new PointText(textOptions).set({
-    content: $('#name3').val(),
+    content: $('#name3').val().toUpperCase(),
     fontSize: 60,
     rotation: 90,
     position: new Point( textStart + spacer * 2, canvasHeight / 2 )
   });
 
   new PointText(textOptions).set({
-    content: $('#name4').val(),
+    content: $('#name4').val().toUpperCase(),
     fontSize: 60,
     rotation: 90,
     position: new Point( textStart + spacer * 3, canvasHeight / 2 )
   });
 
   new PointText(textOptions).set({
-    content: $('#name5').val(),
+    content: $('#name5').val().toUpperCase(),
     fontSize: 60,
     rotation: 90,
     position: new Point( textStart + spacer * 4, canvasHeight / 2 )
-  });
-
-  new PointText(textOptions).set({
-    content: $('#name6').val(),
-    fontSize: 60,
-    rotation: 90,
-    position: new Point( textStart + spacer * 5, canvasHeight / 2 )
   });
 
   $.post('/plot', {svg: '<?xml version="1.0" encoding="utf-8"?>' + project.exportSVG({asString: true})});
