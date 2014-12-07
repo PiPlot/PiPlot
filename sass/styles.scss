@@ -10,8 +10,8 @@
 //===============================================================================
 // VARIABLES
 //===============================================================================
-$paper:  white;
-$ink:    black;
+$paper:  hsl( 220, 20, 10 );
+$ink:    hsl( 220, 10, 95 );
 
 //===============================================================================
 // BASCIS
@@ -36,12 +36,68 @@ body {
   color: $ink;
   font-family: sans-serif;
   line-height: 1.4;
+  font-family: 'Roboto', sans-serif;
 }
 
 //===============================================================================
 // STYLES
 //===============================================================================
-input, #save-btn {
+
+#paperCanvas,
+#save-btn {
+  display: none;
+}
+
+.wrap {
+  max-width: 38em;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.logo {
+
+}
+
+.title,
+.intro,
+.instructions {
+  text-align: center;
+  font-weight: 300;
+  margin: 0 0 0.6em;
+}
+
+.title {
+}
+
+.intro {
+  line-height: 1.2;
+}
+
+.instructions {
+  margin-bottom: 1.5em;
+}
+
+.name {
+  border: 0;
+  appearance: none;
+  width: 100%;
+  margin-bottom: 1.5em;
+  background-color: mix( $ink, $paper, 5% );
+  font-size: 1.2em;
+  border-radius: 0.1em;
+  padding: 0.4em 0.6em;
+  outline: none;
+
+  &:focus {
+    // background-color:  red;
+  }
+}
+
+::-webkit-input-placeholder {
+   color: red;
+}
+
+#save-btn {
   border: 0;
   appearance: none;
   background-color: hsl( 220, 100, 50 );
@@ -63,37 +119,39 @@ input, #save-btn {
   }
 }
 
-input {
-  width: 200px;
-}
-
 #paperCanvas {
   border: 2px dashed black;
 }
 
-input#name1 {
-  bottom: 60px;
-  left: 0;
-}
+// input {
+//   width: 200px;
+// }
 
-input#name2 {
-  bottom: 60px;
-  left: 220px;
-}
 
-input#name3 {
-  bottom: 60px;
-  left: 440px;
-}
 
-input#name4 {
-  left: 0;
-}
+// input#name1 {
+//   bottom: 60px;
+//   left: 0;
+// }
 
-input#name5 {
-  left: 220px;
-}
+// input#name2 {
+//   bottom: 60px;
+//   left: 220px;
+// }
 
-input#name6 {
-  left: 440px;
-}
+// input#name3 {
+//   bottom: 60px;
+//   left: 440px;
+// }
+
+// input#name4 {
+//   left: 0;
+// }
+
+// input#name5 {
+//   left: 220px;
+// }
+
+// input#name6 {
+//   left: 440px;
+// }

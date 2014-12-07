@@ -39,3 +39,7 @@ Icon
 
 # Don't commit css
 *.css
+
+# I am an idiot
+resin
+resin.pub

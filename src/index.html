@@ -4,20 +4,30 @@
   <meta charset="utf-8">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title></title> <!-- ADD A TITLE! -->
+  <title>PiPlot</title> <!-- ADD A TITLE! -->
 
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <button id="save-btn">SAVE</button>
+  <div class="wrap">
 
-  <input type="text" id="name1" class="name" maxlength="10" size="10">
-  <input type="text" id="name2" class="name" maxlength="10" size="10">
-  <input type="text" id="name3" class="name" maxlength="10" size="10">
-  <input type="text" id="name4" class="name" maxlength="10" size="10">
-  <input type="text" id="name5" class="name" maxlength="10" size="10">
-  <input type="text" id="name6" class="name" maxlength="10" size="10">
+    <img src="" class="logo">
+    <h1 class="title">PiPlot</h1>
+    <h2 class="intro">Raspery Pi powered gift tag plotting mechanism</h2>
+    <p class="instructions">Enter Five names to get your gift tags plotted.</p>
+
+    <input type="text" id="name1" class="name" maxlength="10" placeholder="first name" size="10">
+    <input type="text" id="name2" class="name" maxlength="10" placeholder="second name" size="10">
+    <input type="text" id="name3" class="name" maxlength="10" placeholder="third name" size="10">
+    <input type="text" id="name4" class="name" maxlength="10" placeholder="fourth name" size="10">
+    <input type="text" id="name5" class="name" maxlength="10" placeholder="fifth name" size="10">
+    <!-- <input type="text" id="name6" class="name" maxlength="10" size="10"> -->
+
+    <button id="save-btn">PLOT IT!</button>
+
+  </div>
 
   <canvas id="paperCanvas" width="841.9" height="595.3"></canvas>
 
