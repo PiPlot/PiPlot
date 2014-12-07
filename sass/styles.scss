@@ -43,8 +43,7 @@ body {
 // STYLES
 //===============================================================================
 
-#paperCanvas,
-#save-btn {
+#paperCanvas {
   display: none;
 }
 
@@ -55,7 +54,11 @@ body {
 }
 
 .logo {
-
+  width: 110px;
+  height: 140px;
+  margin: 2.5em auto 1em;
+  display: block;
+  background: url( '../img/logo-bg.svg' );
 }
 
 .title,
@@ -63,95 +66,72 @@ body {
 .instructions {
   text-align: center;
   font-weight: 300;
-  margin: 0 0 0.6em;
 }
 
 .title {
+  font-size: 3em;
+  font-weight: 700;
+  margin: 0 0 0;
 }
 
 .intro {
   line-height: 1.2;
+  margin: 0 0 1.6em;
 }
 
 .instructions {
-  margin-bottom: 1.5em;
+  margin-bottom: 0 0 1.5em;
 }
 
 .name {
   border: 0;
   appearance: none;
+  font-weight: 400;
   width: 100%;
-  margin-bottom: 1.5em;
+  margin-bottom: 0.5em;
   background-color: mix( $ink, $paper, 5% );
-  font-size: 1.2em;
+  font-size: 1.4em;
   border-radius: 0.1em;
   padding: 0.4em 0.6em;
   outline: none;
+  transition: all 0.25s;
 
   &:focus {
-    // background-color:  red;
+    background-color: mix( $ink, $paper, 7% );
+    box-shadow: inset 0 0 0 2px mix( $ink, $paper, 25% );
   }
 }
 
 ::-webkit-input-placeholder {
-   color: red;
+  color: mix( $ink, $paper, 30% );
+  font-weight: 300;
 }
 
 #save-btn {
+  display: block;
+  width: 100%;
   border: 0;
+  padding: 0.4em 0.8em;
   appearance: none;
-  background-color: hsl( 220, 100, 50 );
-  position: fixed;
+  font-weight: 400;
+  margin: 0.5em 0 4em;
+  font-weight: 300;
   font-size: 2em;
-  color: white;
-  bottom: 0;
-  right: 0;
-  font-weight: 700;
-  margin: 1em;
-  border-radius: 0.1em;
-  padding: 0.2em 0.4em 0.1em;
-  transition: background-color 0.25s;
-  opacity: 0.25;
-  font-family: '1CamBam_Stick_3';
+  background-color: $paper;
+  border: 2px solid mix( $ink, $paper, 75% );
+  border-radius: 0.15em;
+  transition: all 0.25s;
+  outline: none;
+
+  &:focus {
+    box-shadow: inset 0 0 0 2px mix( $ink, $paper, 75% );
+  }
 
   &:hover {
-    background-color: hsl( 220, 100, 40 );
+    background-color: mix( $ink, $paper, 5% );
   }
 }
 
 #paperCanvas {
   border: 2px dashed black;
 }
-
-// input {
-//   width: 200px;
-// }
-
-
-
-// input#name1 {
-//   bottom: 60px;
-//   left: 0;
-// }
-
-// input#name2 {
-//   bottom: 60px;
-//   left: 220px;
-// }
-
-// input#name3 {
-//   bottom: 60px;
-//   left: 440px;
-// }
-
-// input#name4 {
-//   left: 0;
-// }
-
-// input#name5 {
-//   left: 220px;
-// }
-
-// input#name6 {
-//   left: 440px;
-// }
