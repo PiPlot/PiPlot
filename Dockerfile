@@ -13,3 +13,6 @@ RUN fc-cache -f -v
 
 # Run udevd to detect printer
 RUN udevd > udev.log 2&>1 &
+
+# Set the path for graphtecprint
+ENV PATH /graphtecprint:${PATH}
