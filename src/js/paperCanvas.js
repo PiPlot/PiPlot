@@ -203,6 +203,8 @@ $('#save-btn').click(function() {
     position: new Point( 102 + spacer * 5, canvasHeight / 2 )
   });
 
+  $.post('/plot', {svg: '<?xml version="1.0" encoding="utf-8"?>' + project.exportSVG({asString: true})});
+
   // save the content to a file.
   // =================================================
   saveAs(new Blob(

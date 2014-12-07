@@ -25,7 +25,7 @@ app.get('/', function(req, res) {
 });
 
 app.post('/plot', function(req, res) {
-  console.log(req.body);
+  console.log(req.body.svg);
 });
 
 app.listen(process.env.PORT || 4000);
