@@ -38,3 +38,20 @@ Run Gulp for a local dev server with livereload for the frontend:
 Or run the backend express server:
 
     npm start
+
+Deploy to the Raspberry Pi
+--------------------------
+
+1. Sign up for a https://resin.io account and create a new project.
+2. Sign up for a https://ngrok.com account.
+3. Set the following environment variables in your application dashboard:
+  * `PORT` to 80
+  * `NGROK_AUTH_TOKEN` to your ngrok authentication token.
+4. Add the `resin` remote to the Git repository.
+5. Push to the device: `git push resin master`
+6. Wait until your device is provisioned.
+7. Connect your plotter. Tested with a [Silhouette Portrait], but might work
+   with other compatible plotters like the [Silhouette Cameo].
+
+[Silhouette Portrait]: http://www.silhouetteamerica.com/shop/machines/portrait
+[Silhouette Cameo]: http://www.silhouetteamerica.com/shop/machines/cameo
