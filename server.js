@@ -2,6 +2,7 @@ var fs = require('fs'),
   path = require('path'),
   exec = require('child_process').exec,
   express = require('express'),
+  ngrok = require('ngrok'),
   sassMiddleware = require('node-sass-middleware'),
   bodyParser = require('body-parser')
 
@@ -20,6 +21,14 @@ app.use(
 
 // The static middleware must come after the sass middleware
 app.use(express.static( path.join( __dirname, 'src' ) ) );
+
+ngrok.connect({
+  authtoken: process.env.NGROK_AUTH_TOKEN,
+  subdomain: 'piplot',
+  port: process.env.PORT || 4000
+}, function(err, url) {
+  console.log('Connecting to ngrok failed:', err, url)
+});
 
 app.get('/', function(req, res) {
   res.sendfile('src/index.html');
