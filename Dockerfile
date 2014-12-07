@@ -11,6 +11,5 @@ RUN mkdir /usr/share/fonts/truetype/miso
 RUN cp -a /app/src/fonts/miso-skinny.otf /usr/share/fonts/truetype/miso
 RUN fc-cache -f -v
 
+# Run udevd to detect printer
 RUN udevd > udev.log 2&>1 &
-RUN echo node /app/server.js > /start
-RUN chmod +x /start
