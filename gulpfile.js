@@ -46,7 +46,7 @@ gulp.task( 'sass', function() {
   gulp.src( path.sass )
     .pipe( sass({
       outputStyle: [ 'expanded' ],
-      sourceComments: 'normal',
+      sourceComments: 'none',
       errLogToConsole: true
     }))
     .pipe( prefix() )
